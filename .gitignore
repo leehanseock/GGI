@@ -17,3 +17,6 @@ venv/
 .env/
 
 *.pt
+
+# 데이터셋 무시
+datasets/
