@@ -7,6 +7,8 @@ model = YOLO("runs/detect/train7/weights/best.pt")
 model.train(
     data="D:/GGI/datasets/Smoking-CCTV.v1i.yolov11/data.yaml",
     epochs=50,
+    patience=25,  # 25 epoch 동안 개선 없으면 중단
+    cos_lr=True,
     batch=8,
     imgsz=640,
     device=0,
