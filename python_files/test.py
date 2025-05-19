@@ -3,7 +3,7 @@ import cv2
 from ultralytics import YOLO
 
 # 모델 로드 (경로는 파일 위치에 맞게 수정)
-model = YOLO("yolo/yolov12n.pt")
+model = YOLO("../yolo/yolov12n.pt")
 
 # USB 카메라 열기 (기본 0번 카메라)
 cap = cv2.VideoCapture(0)

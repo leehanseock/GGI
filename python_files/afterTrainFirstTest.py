@@ -5,7 +5,7 @@ import cv2
 model = YOLO("runs/detect/train11/weights/best.pt")
 
 # 테스트 이미지 경로
-image_path = "D:/GGI/test_images/2.jpg"
+image_path = "/test_images/2.jpg"
 image = cv2.imread(image_path)
 
 # 추론

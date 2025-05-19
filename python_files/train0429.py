@@ -2,7 +2,7 @@ from ultralytics import YOLO
 
 if __name__ == "__main__":
     # 모델 불러오기
-    model = YOLO('D:/GGI/yolo/yolov12n.pt')
+    model = YOLO('/yolo/yolov12n.pt')
 
     # 학습 시작
     model.train(

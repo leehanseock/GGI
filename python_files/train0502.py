@@ -11,7 +11,7 @@ def main():
         patience=15,  # 15 epoch 동안 개선 없으면 종료 (25는 너무 길어질 수 있음)
         cos_lr=True,
         lr0=0.002,  # 기본 학습률 조정 (기본은 0.01 → 약간 줄여서 안정화)
-        batch=8,
+        batch=16,
         imgsz=768,  # 작은 객체를 위한 고해상도 입력
         device=0,
         workers=2,
