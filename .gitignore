@@ -21,6 +21,6 @@ venv/
 # 데이터셋 무시
 dataset/files/
 dataset/frames
-dataset/[객체감지] 데이터 셋 제작 프로그램/
-dataset/[세그먼트] 데이터 셋 제작 프로그램/
+dataset/labelImg/
+dataset/labelme/
 test_images/
