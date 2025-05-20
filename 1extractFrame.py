@@ -3,7 +3,7 @@ import os
 import sys
 
 # 비디오 파일 경로 설정
-video_path = os.path.join("D:/GGI/dataset", "WIN_20250519_18_57_44_Pro.mp4")
+video_path = os.path.join("D:/GGI/dataset/files", "WIN_20250520_17_37_41_Pro.mp4")
 
 # 비디오 파일명만 추출 (확장자 제거)
 video_name = os.path.splitext(os.path.basename(video_path))[0]

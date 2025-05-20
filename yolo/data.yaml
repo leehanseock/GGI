@@ -1,0 +1,6 @@
+train: D:/GGI/dataset/images/train
+val: D:/GGI/dataset/images/val
+test: D:/GGI/dataset/images/test
+
+nc: 2
+names: ['cigarette', 'other']
