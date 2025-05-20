@@ -2,13 +2,18 @@ import cv2
 import os
 import sys
 
-# 비디오 파일 경로 및 출력 디렉토리 설정
+# 비디오 파일 경로 설정
 video_path = os.path.join("D:/GGI/dataset", "WIN_20250519_18_57_44_Pro.mp4")
-output_dir = os.path.join("D:/GGI/dataset", "frames")
+
+# 비디오 파일명만 추출 (확장자 제거)
+video_name = os.path.splitext(os.path.basename(video_path))[0]
+
+# 출력 디렉토리 설정: frames/영상이름/
+output_base_dir = os.path.join("D:/GGI/dataset", "frames")
+output_dir = os.path.join(output_base_dir, video_name)
 
 # 출력 디렉토리 생성
-if not os.path.exists(output_dir):
-    os.makedirs(output_dir)
+os.makedirs(output_dir, exist_ok=True)
 
 # 비디오 캡처 객체 생성
 cap = cv2.VideoCapture(video_path)
@@ -25,7 +30,6 @@ if total_frames == 0:
     exit()
 
 frame_count = 0
-
 print(f"총 {total_frames}개의 프레임을 저장합니다...")
 
 while True:

@@ -19,8 +19,5 @@ venv/
 *.pt
 
 # 데이터셋 무시
-dataset/files/
-dataset/frames
-dataset/labelImg/
-dataset/labelme/
+dataset/
 test_images/
