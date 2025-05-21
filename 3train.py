@@ -6,15 +6,15 @@ def main():
 
     # 훈련 시작
     model.train(
-        data='yolo/data.yaml',   # 절대경로면 더 안정적
-        epochs=50,
-        imgsz=640,
+        data='yolo/data.yaml',
+        epochs=100,
         batch=16,
         name='smoker_detector',
         project='runs/train',
         pretrained=True,
         freeze=10,
         verbose=True,
+        exist_ok=True  # 중요: 기존 폴더 덮어쓰기 허용
     )
 
 if __name__ == "__main__":
