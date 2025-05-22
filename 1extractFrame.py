@@ -3,13 +3,13 @@ import os
 import sys
 
 # 비디오 파일 경로 설정
-video_path = os.path.join("C:/Users/Heeha/folder/programming/polytech/subject/smokeDetector/dataset/files", "WIN_20250520_17_37_41_Pro.mp4")
+video_path = os.path.join("C:/Users/leeha/folder/programming/polytech/subject/smokeDetector/dataset/files", "20250522_162442.mp4")
 
 # 비디오 파일명만 추출 (확장자 제거)
 video_name = os.path.splitext(os.path.basename(video_path))[0]
 
 # 출력 디렉토리 설정: frames/영상이름/
-output_base_dir = os.path.join("C:/Users/Heeha/folder/programming/polytech/subject/smokeDetector/dataset", "frames")
+output_base_dir = os.path.join("C:/Users/leeha/folder/programming/polytech/subject/smokeDetector/dataset", "frames")
 output_dir = os.path.join(output_base_dir, video_name)
 
 # 출력 디렉토리 생성
