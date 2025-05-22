@@ -3,13 +3,13 @@ import os
 import sys
 
 # 비디오 파일 경로 설정
-video_path = os.path.join("D:/GGI/dataset/files", "WIN_20250520_17_37_41_Pro.mp4")
+video_path = os.path.join("C:/Users/Heeha/folder/programming/polytech/subject/smokeDetector/dataset/files", "WIN_20250520_17_37_41_Pro.mp4")
 
 # 비디오 파일명만 추출 (확장자 제거)
 video_name = os.path.splitext(os.path.basename(video_path))[0]
 
 # 출력 디렉토리 설정: frames/영상이름/
-output_base_dir = os.path.join("D:/GGI/dataset", "frames")
+output_base_dir = os.path.join("C:/Users/Heeha/folder/programming/polytech/subject/smokeDetector/dataset", "frames")
 output_dir = os.path.join(output_base_dir, video_name)
 
 # 출력 디렉토리 생성
@@ -30,19 +30,24 @@ if total_frames == 0:
     exit()
 
 frame_count = 0
-print(f"총 {total_frames}개의 프레임을 저장합니다...")
+saved_count = 0
+save_interval = 30  # 0.5초 간격 저장 (60fps 기준)
+
+print(f"총 {total_frames}프레임 중, {save_interval}프레임마다 저장합니다...")
 
 while True:
     ret, frame = cap.read()
     if not ret:
         break
 
-    frame_filename = f"frame_{frame_count:04d}.jpg"
-    frame_path = os.path.join(output_dir, frame_filename)
-
-    success = cv2.imwrite(frame_path, frame)
-    if not success:
-        print(f"{frame_path} 저장 실패")
+    if frame_count % save_interval == 0:
+        frame_filename = f"frame_{frame_count:04d}.jpg"
+        frame_path = os.path.join(output_dir, frame_filename)
+        success = cv2.imwrite(frame_path, frame)
+        if success:
+            saved_count += 1
+        else:
+            print(f"{frame_path} 저장 실패")
 
     frame_count += 1
 
@@ -52,4 +57,4 @@ while True:
     sys.stdout.flush()
 
 cap.release()
-print(f"\n총 {frame_count}개의 프레임이 '{output_dir}'에 저장되었습니다.")
+print(f"\n총 {saved_count}개의 프레임이 '{output_dir}'에 저장되었습니다.")
