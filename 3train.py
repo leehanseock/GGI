@@ -1,23 +1,20 @@
 from ultralytics import YOLO
 
 def main():
-    # 전이학습 모델 불러오기 (yolov12n 기반으로 학습된 best0520.pt)
-    model = YOLO('./yolo/best0520.pt')
+    model = YOLO('./yolo/yolo11n.pt')  # 기존 모델에서 전이학습
 
-    # 학습 시작
     model.train(
-        data='yolo/data.yaml',
-        cfg='yolo/augment.yaml',     # 💡 데이터 증강 설정
+        data='yolo/data.yaml',           # 수정된 클래스 구성 반영
+        cfg='yolo/augment.yaml',         # 증강은 그대로 사용 가능
         epochs=100,
         batch=16,
-        name='smoker_detector_second',
+        name='smoker_detector_cig_only',
         project='runs/train',
         pretrained=True,
-        freeze=0,
+        freeze=0,                        # 전체 학습
         verbose=True,
         exist_ok=True
     )
 
 if __name__ == "__main__":
     main()
-

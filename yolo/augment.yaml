@@ -1,12 +1,13 @@
+# 데이터 증강 (소수 클래스 대응 위해 약간 강화)
 hsv_h: 0.015
 hsv_s: 0.7
 hsv_v: 0.4
 degrees: 10.0
-translate: 0.1
+translate: 0.2
 scale: 0.5
 shear: 2.0
-perspective: 0.0
-flipud: 0.5
+perspective: 0.001
+flipud: 0.0
 fliplr: 0.5
 mosaic: 1.0
 mixup: 0.1

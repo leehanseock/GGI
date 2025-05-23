@@ -5,10 +5,10 @@ from pathlib import Path
 
 # 기준 디렉토리 (GGI 내부에서 실행됨)
 project_root = Path(__file__).parent
-dataset_root = project_root / "dataset" / "dataset2"
-images_dir = dataset_root / "frames" / "20250522_162442"  # ← 수정된 경로
+dataset_root = project_root / "dataset"
+images_dir = dataset_root / "frames_all"
 labels_dir = dataset_root / "labelled"
-base_output = project_root / "dataset2_output"
+base_output = project_root / "dataset_output"
 
 print("📁 이미지 디렉토리:", images_dir)
 print("📁 라벨 디렉토리:", labels_dir)
@@ -55,3 +55,18 @@ for split, files in split_files.items():
         shutil.copy(label_path, base_output / f"labels/{split}" / label_path.name)
 
 print("✅ 데이터셋 분할 완료 (라벨 없는 이미지 제외됨)")
+
+# ✅dataset.yaml 생성 코드
+# 클래스 이름 정의
+class_names = ["cigarette", "other", "vape"]
+
+# dataset.yaml 생성
+dataset_yaml_path = base_output / "dataset.yaml"
+with open(dataset_yaml_path, "w") as f:
+    f.write("train: " + str(base_output / "images/train").replace("\\", "/") + "\n")
+    f.write("val: " + str(base_output / "images/val").replace("\\", "/") + "\n")
+    f.write("test: " + str(base_output / "images/test").replace("\\", "/") + "\n\n")
+    f.write(f"nc: {len(class_names)}\n")
+    f.write("names: " + str(class_names) + "\n")
+
+print(f"✅ dataset.yaml 파일 생성 완료: {dataset_yaml_path}")
