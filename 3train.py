@@ -3,16 +3,16 @@ import os
 
 def main():
     # 모델 로딩
-    model = YOLO('./yolo/yolo11n.pt')  # 전이학습
+    model = YOLO('yolov8m.pt')  # 전이학습
 
     # 훈련
     model.train(
-        data='yolo/data.yaml',
-        cfg='yolo/augment.yaml',
+        data='D:/GGI/dataset_output/dataset.yaml',
+        cfg='D:/GGI/yolo/augment.yaml',
         epochs=100,
         batch=32,
-        name='smoker_detector_cig_only',
-        project='runs/train',
+        name='smoker_detector',
+        project='D:/GGI/runs/train',
         pretrained=True,
         freeze=0,
         verbose=True,
@@ -21,7 +21,7 @@ def main():
     )
 
     # 훈련 로그 디렉토리
-    exp_dir = model.trainer.save_dir  # ex: runs/train/smoker_detector_cig_only
+    exp_dir = model.trainer.save_dir  # ex: runs/train/smoker_detector
 
     # 훈련 결과 요약
     print(f"\n✅ 훈련 완료! 최종 결과 경로: {exp_dir}")
