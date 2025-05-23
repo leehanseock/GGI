@@ -1,6 +1,9 @@
-train: D:/GGI/dataset/images/train
-val: D:/GGI/dataset/images/val
-test: D:/GGI/dataset/images/test
+# data.yaml
 
-nc: 2
-names: ['cigarette', 'other']
+path: D:/GGI/dataset2_output   # 데이터셋 최상위 경로
+train: D:/GGI/dataset2_output/images/train            # 훈련 이미지 폴더 (path 기준 상대경로)
+val: D:/GGI/dataset2_output/images/val              # 검증 이미지 폴더
+test: D:/GGI/dataset2_output/images/test              # (선택) 테스트 이미지 폴더
+
+nc: 1                          # 클래스 수 (예: 흡연자 감지만 있다면 1)
+names: ['cigarette']              # 클래스 이름 리스트

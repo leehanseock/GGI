@@ -1,21 +1,23 @@
 from ultralytics import YOLO
 
 def main():
-    # 모델 불러오기
-    model = YOLO('./yolo/yolov12n.pt')
+    # 전이학습 모델 불러오기 (yolov12n 기반으로 학습된 best0520.pt)
+    model = YOLO('./yolo/best0520.pt')
 
-    # 훈련 시작
+    # 학습 시작
     model.train(
         data='yolo/data.yaml',
+        cfg='yolo/augment.yaml',     # 💡 데이터 증강 설정
         epochs=100,
         batch=16,
-        name='smoker_detector',
+        name='smoker_detector_second',
         project='runs/train',
         pretrained=True,
-        freeze=10,
+        freeze=0,
         verbose=True,
-        exist_ok=True  # 중요: 기존 폴더 덮어쓰기 허용
+        exist_ok=True
     )
 
 if __name__ == "__main__":
     main()
+

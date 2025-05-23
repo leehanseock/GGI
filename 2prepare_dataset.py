@@ -3,11 +3,16 @@ import shutil
 import random
 from pathlib import Path
 
-# 기준 디렉토리 (GGI 내부에서 실행)
+# 기준 디렉토리 (GGI 내부에서 실행됨)
 project_root = Path(__file__).parent
-images_dir = project_root / "dataset" / "frames"
-labels_dir = project_root / "dataset" / "labelled"
-base_output = project_root / "dataset"
+dataset_root = project_root / "dataset" / "dataset2"
+images_dir = dataset_root / "frames" / "20250522_162442"  # ← 수정된 경로
+labels_dir = dataset_root / "labelled"
+base_output = project_root / "dataset2_output"
+
+print("📁 이미지 디렉토리:", images_dir)
+print("📁 라벨 디렉토리:", labels_dir)
+print("📁 출력 디렉토리:", base_output)
 
 splits = ['train', 'val', 'test']
 split_ratio = [0.7, 0.2, 0.1]
@@ -25,6 +30,8 @@ for img_path in all_jpg_files:
     label_path = labels_dir / (img_path.stem + ".txt")
     if label_path.exists():
         valid_image_files.append(img_path)
+    else:
+        print(f"⚠️ 라벨 없음: {img_path.name}")
 
 print(f"📦 라벨이 존재하는 이미지 수: {len(valid_image_files)}")
 
