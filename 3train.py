@@ -3,10 +3,10 @@ import os
 
 def main():
     # 이전 모델에서 이어서 학습!
-    model = YOLO('D:/GGI/yolo/best052302.pt')  # 기존에 쓰던 best.pt 경로
+    model = YOLO('D:/GGI/yolo/yolov8m.pt')  # 기존에 쓰던 best.pt 경로
 
     model.train(
-        data='D:/GGI/dataset_output2/dataset.yaml',   # 새 데이터셋 yaml 경로
+        data='D:/GGI/dataset_output3/dataset.yaml',   # 새 데이터셋 yaml 경로
         cfg='D:/GGI/yolo/augment.yaml',               # 증강 설정(그대로 사용)
         epochs=100,
         batch=32,
