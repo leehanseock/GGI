@@ -8,7 +8,7 @@ project_root = Path(__file__).parent
 dataset_root = project_root / "dataset"
 images_dir = dataset_root / "frames_all0"     # ✅ 통합 이미지 폴더
 labels_dir = dataset_root / "labelled0"       # ✅ 통합 라벨 폴더
-base_output = project_root / "dataset_output3"  # ✅ 출력 폴더 (새로 만드세요!)
+base_output = project_root / "dataset_output4"  # ✅ 출력 폴더 (새로 만드세요!)
 
 print("📁 이미지 디렉토리:", images_dir)
 print("📁 라벨 디렉토리:", labels_dir)

@@ -4,7 +4,7 @@ import sys
 
 # 비디오 파일들이 위치한 디렉토리
 video_dir = "D:/GGI/dataset/files"
-video_files = ["1.mp4","2.mp4", "3.mp4", "4.mp4", "5.mp4"]
+video_files = ["1.mp4","2.mp4", "3.mp4", "4.mp4", "5.mp4", "6.mp4"]
 
 # 모든 프레임을 저장할 하나의 출력 디렉토리
 output_dir = "D:/GGI/dataset/frames_all"
